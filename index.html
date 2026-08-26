@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NITIN MURAKA</title>
+
+<!-- Non-blocking Font Awesome Icons Load -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+
+<style>
+/* Reset & High-Performance Fonts */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #f1f5f9;
+  background: #0f0a05;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Glowing Ambient Background */
+body::before, body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+body::before {
+  width: 280px;
+  height: 280px;
+  background: #f5b942;
+  top: 5%;
+  left: 10%;
+  opacity: 0.15;
+}
+body::after {
+  width: 320px;
+  height: 320px;
+  background: #e8871e;
+  bottom: 5%;
+  right: 10%;
+  opacity: 0.12;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Glassmorphism Card Container */
+.card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Profile Glow Outer */
+.profile-container {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 16px;
+}
+.profile-container::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #f5b942, #e8871e);
+  filter: blur(8px);
+  opacity: 0.6;
+}
+.profile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: #3a2a14;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 22px;
+}
+
+/* Key Stats Grid */
+.grid-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.grid-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 6px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: #cbd5e1;
+}
+.grid-item strong {
+  display: block;
+  color: #f5b942;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+/* Feature List */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.feature-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* Call to Action Button */
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f5b942 0%, #e8871e 100%);
+  color: #0f0a05;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 25px rgba(245, 185, 66, 0.3);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.cta-btn:active { transform: scale(0.98); }
+
+/* Advertiser Credit */
+.advertiser {
+  margin-top: 16px;
+  font-size: 11px;
+  color: #64748b;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+.advertiser a {
+  color: #f5b942;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245, 185, 66, 0.35);
+  padding-bottom: 1px;
+}
+.advertiser a:hover { border-bottom-color: #f5b942; }
+
+/* Footer Disclaimer */
+.disclaimer {
+  margin-top: 20px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #475569;
+  text-align: center;
+  padding: 0 8px;
+}
+
+@media (max-width: 480px) {
+  .card { padding: 26px 18px; }
+  h1 { font-size: 20px; }
+  .cta-btn { font-size: 14px; padding: 14px; }
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1743472643429270');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1743472643429270&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="card">
+
+    <!-- Profile Image (Add your image link below) -->
+    <div class="profile-container">
+      <img src="profile.jpg" class="profile" alt="Profile Image" width="110" height="110" decoding="async" fetchpriority="high">
+    </div>
+
+    <h1>NITIN MURAKA</h1>
+    <p class="subtitle">Stock Market &amp; Financial Education</p>
+
+    <!-- Stat Grid -->
+    <div class="grid-highlights">
+      <div class="grid-item">
+        <strong>100%</strong> Beginner
+      </div>
+      <div class="grid-item">
+        <strong>Daily</strong> Updates
+      </div>
+      <div class="grid-item">
+        <strong>Free</strong> Access
+      </div>
+    </div>
+
+    <!-- Button (Add your link below) -->
+    <a class="cta-btn" id="telegramBtn" href="https://t.me/+LyVEd7Q25Po0ZDRl" rel="noopener noreferrer">
+      <i class="fab fa-telegram-plane" style="font-size:18px;"></i> JOIN FREE COMMUNITY <i class="fas fa-arrow-right" style="font-size:12px;"></i>
+    </a>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(34,197,94,0.15); color:#22c55e;"><i class="fas fa-chart-line"></i></div>
+        <span>Daily Market Updates &amp; Insights</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(56,189,248,0.15); color:#f5b942;"><i class="fas fa-book-open"></i></div>
+        <span>Free Educational Content</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(251,113,133,0.15); color:#fb7185;"><i class="fas fa-bullseye"></i></div>
+        <span>Easy Explanation for Beginners</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(250,204,21,0.15); color:#facc15;"><i class="fas fa-users"></i></div>
+        <span>Full Community Support</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Advertiser Credit -->
+  <div class="advertiser">
+    Advertised by <a href="https://t.me/+TRlJl628l-FkMWE9" target="_blank" rel="noopener noreferrer">Ads managed by Nexgroww agency</a>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> For educational purposes only. Not investment advice.
+Market investments are subject to risk. Please consult a SEBI-registered advisor before investing.
+  </div>
+</div>
+
+</body>
+</html>
